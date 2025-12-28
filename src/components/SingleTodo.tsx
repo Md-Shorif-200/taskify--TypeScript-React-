@@ -24,7 +24,7 @@ export const SingleTodo = ({ todo, todos, setTodos }: SingleTodoProps) => {
 //  delete function
 
   const handleDelete = (id : number) => {
-
+    setTodos(todos.filter(todo => todo.id != id))
   }
 
   return (
@@ -45,7 +45,9 @@ export const SingleTodo = ({ todo, todos, setTodos }: SingleTodoProps) => {
             {" "}
             <FaEdit />{" "}
           </div>
-          <div className="text-xl cursor-pointer">
+          <div className="text-xl cursor-pointer"
+                 onClick={() => handleDelete(todo.id)}
+            >
             {" "}
             <MdDelete />{" "}
           </div>
